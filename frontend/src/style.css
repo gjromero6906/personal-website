@@ -1,7 +1,7 @@
 :root {
-  --text: #6b6375;
+  --text: #021404;
   --text-h: #08060d;
-  --bg: #fff;
+  --bg: #1dbcc4;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
@@ -16,10 +16,12 @@
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
+  line-height: 1;
+  letter-spacing: 0.2px;
   color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
+  color: oldlace;
+  text-shadow: 2px 2px 4px #000000;
+  background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -30,7 +32,7 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
@@ -44,18 +46,75 @@
     --shadow:
       rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   }
-}
-
-body {
-  margin: 0;
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+} */
+ @keyframes springBounce {
+  0% {
+    transform: translateY(0) ;
   }
+  30% {
+    transform: translateY(-35px) ;
+  }
+  50% {
+    transform: translateY(0);
+  }
+  65% {
+    transform: translateY(-12px) ;
+  }
+  80% {
+    transform: translateY(0) ;
+  }
+  100% {
+    transform: translateY(0) ;
+  }
+}
+body{
+  font-family: var(--font-family);
+}
+header{
+  background-color: var(--color-second);
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  position: sticky;
+  top: 0px;
+  z-index: 500;
+  max-height: clamp(40px, 6vw, 60px);
+  padding-bottom: 2px;
+}
+.logo {
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius:50%;
+  width:clamp(40px, 6vw, 60px);
+  height:clamp(40px, 6vw, 60px);
+  object-fit:cover;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.logo.spring {
+  animation: springBounce 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 50%;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+nav{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 20px;
+}
+nav >a{
+  color: var(--color-text);
+  text-decoration: none;
+  font-size:17px;
+  line-height: 2;
+}
+html{
+  scroll-behavior: smooth;
+}
+ul {
+  list-style: none;
+}
+main{
+  text-align: center;
+  font-family: fantasy;
+  font-size: clamp(20px, 3vw, 40px);
 }
