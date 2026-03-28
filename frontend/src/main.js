@@ -1,11 +1,15 @@
-import './style.css'
+import { renderProjects,renderError } from './fetch-helpers.js';
+import { getProjects } from './dom-helpers.js';
 
-const logo = document.querySelector('.logo');
+const loadProjects = async () => {
+  console.log("LOADING PROJECTS...");
 
-logo.addEventListener('click', () => {
-  logo.classList.add('spring');
+  const { data, error } = await getProjects();
 
-  setTimeout(() => {
-    logo.classList.remove('spring');
-  }, 900);
-});
+  console.log(data, error);
+
+  if (error) return renderError(error.message);
+
+  renderProjects(data);
+};
+loadProjects();
