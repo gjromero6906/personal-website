@@ -69,6 +69,7 @@
 }
 body{
   font-family: var(--font-family);
+  min-width: 600px;
 }
 header{
   background-color: var(--color-second);
@@ -107,14 +108,117 @@ nav >a{
   font-size:17px;
   line-height: 2;
 }
+nav >a:hover{
+  color: black;
+  text-shadow: 0 10px 25px rgb(255, 255, 255);
+}
 html{
   scroll-behavior: smooth;
 }
 ul {
   list-style: none;
+  padding: 0;
+}
+
+/* GRID CONTAINER */
+#projectGrid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 2rem;
+  max-width: 1000px;
+  min-width: 500px;
+  margin: 0 auto;
+}
+
+/* CARD */
+.project-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* HOVER EFFECT */
+.project-card:hover {
+  color: white;
+  background-color: #3eb581;
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgb(255, 255, 255);
+}
+
+/* IMAGE */
+.project-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* TITLE */
+.project-title {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+/* DESCRIPTION */
+.project-bio {
+  font-size: 0.9rem;
+  margin: 10px 0;
+  line-height: 1.4;
+}
+
+/* LINKS */
+.project-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.project-links a {
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #0ba360;
+  color: white;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
+}
+
+.project-links a:hover {
+  box-shadow: 0 5px 10px rgb(1, 1, 1);
 }
 main{
   text-align: center;
   font-family: fantasy;
   font-size: clamp(20px, 3vw, 40px);
+}
+section {
+  display: flex;
+  flex-direction: column; /* stack children vertically */
+  align-items: center;    /* horizontal centering */
+  justify-content: flex-start; /* vertical start, can change to center */
+  min-height: clamp(50px, 2vw, 100px);
+  padding: 80px 20px;
+  scroll-margin-top: 5px;
+  text-align: center; /* centers text inside */
+}
+footer{
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 800px) {
+  #projectGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 1 column on small screens */
+@media (max-width: 500px) {
+  #projectGrid {
+    grid-template-columns: 1fr;
+  }
 }
