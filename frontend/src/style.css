@@ -206,6 +206,101 @@ section {
   scroll-margin-top: 5px;
   text-align: center; /* centers text inside */
 }
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #3eb581;
+  border-radius: 15%;
+  padding: 3%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+.enterInfo{
+  flex: 1;
+  margin: 10px;
+}
+.input-row {
+  display: flex;
+  gap: 20px;
+}
+.enterInfo input{
+  width: 100%;
+}
+.enterInfo label{
+  font-size: 20px;
+}
+#message {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+input{
+  padding: 10px;
+  border: 1px solid #8e80805e;
+  border-radius: 4px;
+
+}
+textarea{
+  padding: 20px;
+}
+
+#infoBlock ul{
+  display: flex;
+  justify-self: center;
+  gap: 30px;
+}
+#infoBlock{
+  padding-top: 20px;
+}
+#infoBlock li a{
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  text-decoration: none;
+  background-color: var(--color-button);
+  border-radius: 50%;
+  min-width: 70px;
+  min-height: 70px;
+  padding: 15px 20px;
+  font-size: 18px;
+}
+#infoBlock li a:hover{
+  color: #021404;
+  text-shadow: 2px 2px 5px #e5e4e7;
+  background-color: #b3f0d9; /* optional: highlight circle */
+}
+/* Skills container */
+#skills {
+  display: flex;
+  flex-wrap: wrap;       /* Allows items to wrap on smaller screens */
+  gap: 10px;             /* Space between each skill */
+  justify-content: center; /* Center the skills horizontally */
+  padding: 0;
+  list-style: none;      /* Remove default bullets */
+  margin: 0;
+}
+
+/* Individual skill items */
+#skills li {
+  background-color: #3b9e73; /* Greenish pill background */
+  color: white;
+  padding: 8px 15px;         /* Some padding around text */
+  border-radius: 8px;        /* Rounded corners */
+  font-weight: bold;
+  white-space: nowrap;       /* Prevent breaking words inside a skill */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Optional hover effect */
+#skills li:hover {
+  background-color: #2c8f6a; /* Darker green on hover */
+  transform: scale(1.05);     /* Slight zoom effect */
+  cursor: pointer;
+  box-shadow: 0 10px 15px rgb(255, 255, 255);
+}
 footer{
   display: flex;
   justify-content: space-between;
@@ -220,5 +315,8 @@ footer{
 @media (max-width: 500px) {
   #projectGrid {
     grid-template-columns: 1fr;
+  }
+  .input-row {
+    flex-direction: column;
   }
 }
