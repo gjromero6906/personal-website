@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/style.css">
-    <title>Personal web page</title>
+    <title>Guadalupe Romero Portfolio</title>
 </head>
 <body>
+    <div id="top"></div>
     <header>
-        <img src="./imgs/logoTrans.jpg" alt="hold" class ="logo">
+        <a href="#top">
+            <img src="./imgs/logoTrans.jpg" alt="hold" class ="logo">
+        </a>
         <nav>
            <a href="#Main">Home</a>
             <a href="#About">About</a>
@@ -21,7 +24,7 @@
         <section id ="Main">
             <h1>Welcome!</h1>
             <h2>Hi, my name is Guadalupe Romero AKA Lupe</h2>
-            <p>I'm a fellow at <a href="https://www.marcylabschool.org">Marcy Lab School</a> learning to be a upstanding Software Engineer.</p>
+            <p>I'm a fellow at <a href="https://www.marcylabschool.org" class="highlight-link" target="_blank" rel="noopener noreferrer">Marcy Lab School</a> learning to be a upstanding Software Engineer.</p>
         </section>
         <section id ="About">
             <h1>About Me!</h1>
@@ -51,7 +54,7 @@
         </section>
         <section id ="Contact">
             <h1>Contact Me!</h1>
-            <form action="https://formspree.io/f/xaqovkjy" method="post">
+            <form id="contactForm">
                 <div class="input-row">
                     <div class="enterInfo">
                         <label for = "name">Name</label>
@@ -73,6 +76,7 @@
                 </div>
                 <button type="submit">Send Message &#8594 </button>
             </form>
+            <p id="thankYouMsg"></p>
             <div id ="contentInfo">
                 <div id = "infoBlock">
                     <ul>
