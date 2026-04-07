@@ -79,7 +79,23 @@ nav a:hover {
   transform: scale(1.1);
   box-shadow: var(--shadow-glow);
 }
+/* Highlight links like Marcy Lab neon badges */
+.highlight-link {
+    color: var(--primary);
+    font-weight: bold;       /* make it stand out */
+    text-decoration: none;   /* remove underline for cleaner look */
+    padding: 2px 6px;
+    border: 1px solid var(--primary);
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
 
+.highlight-link:hover {
+    background: var(--primary);
+    color: black;
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+}
 /* =========================
    SECTIONS (PANELS)
 ========================= */
@@ -207,13 +223,15 @@ button:active {
   padding: 6px 12px;
   border-radius: 20px;
   color: var(--primary);
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: bold;
   transition: 0.2s;
 }
 
 #skills li:hover {
   background: var(--primary);
   color: black;
+  font-weight: bold;
   box-shadow: var(--shadow-glow);
 }
 
@@ -249,6 +267,22 @@ input:focus, textarea:focus {
   outline: none;
   border-color: var(--primary);
   box-shadow: var(--shadow-glow);
+}
+#thankYouMsg {
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 15px;
+    text-align: center;
+    opacity: 0; /* hidden initially */
+    transition: opacity 0.5s ease, text-shadow 0.5s ease, transform 0.3s ease;
+}
+
+/* Show message with neon glow and subtle pop */
+#thankYouMsg.show {
+    opacity: 1;
+    text-shadow: 0 0 10px var(--primary-glow), 0 0 20px rgba(62, 181, 129, 0.5);
+    transform: translateY(-2px);
 }
 
 /* =========================
