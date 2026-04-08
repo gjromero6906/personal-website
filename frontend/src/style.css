@@ -180,10 +180,24 @@ section {
 ========================= */
 .project-links {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  flex-wrap: wrap;        
+  gap: 10px;              
+  justify-content: center; 
 }
+.project-links a {
+  flex: 1 1 auto;        /* allows scaling */
+  min-width: 120px;      /* prevents tiny buttons */
+  text-align: center;
 
+  padding: 8px 12px;
+  border-radius: 8px;
+
+  text-decoration: none;
+  border: 1px solid #00ffcc;
+  color: #00ffcc;
+
+  transition: all 0.2s ease;
+}
 .project-links a,
 button {
   background: transparent;
@@ -368,6 +382,9 @@ footer {
   }
   .input-row {
     flex-direction: column;
+  }
+  .project-links a {
+    flex: 1 1 100%;  /* stack vertically on small screens */
   }
 }
 @supports (font: -apple-system-body) {
