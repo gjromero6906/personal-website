@@ -1,8 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 
 const app = express();
-const pathToFrontend = path.join(__dirname, '../frontend');
+const pathToFrontend = path.join(__dirname, '../frontend/dist');
 
 const Controllers = require('./controllers/controllers');
 
@@ -24,14 +25,14 @@ app.use(express.json());
 // Endpoints
 ////////////////////////
 
-
 app.get('/api/projects', Controllers.listProjects);
 app.get('/api/projects/:id', Controllers.findProject);
 
-// TODO: Catch-all handler — send a 404 JSON error for unmatched /api routes,
-// or serve index.html for all other routes (SPA fallback)
 app.use((req, res) => {
-  res.status(404).send({ message: `Not found: ${req.originalUrl}` });
+  if (req.originalUrl.startsWith('/api')) {
+    return res.status(404).send({ message: `Not found: ${req.originalUrl}` });
+  }
+  res.sendFile(path.join(pathToFrontend, 'index.html'));
 });
 
 const port = 8080;
