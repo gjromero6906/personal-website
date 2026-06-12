@@ -27,6 +27,8 @@ app.use(express.json());
 
 app.get('/api/projects', Controllers.listProjects);
 app.get('/api/projects/:id', Controllers.findProject);
+app.get('/api/skills', Controllers.listSkills);
+app.get('/api/titles', Controllers.listTitles);
 
 app.use((req, res) => {
   if (req.originalUrl.startsWith('/api')) {
