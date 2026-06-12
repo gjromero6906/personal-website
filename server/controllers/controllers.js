@@ -24,3 +24,23 @@ module.exports.findProject = async (req, res) => {
     res.status(500).send({ message: 'Failed to fetch project.' });
   }
 };
+
+module.exports.listTitles = async (req, res) => {
+  try {
+    const titles = await Model.listTitles();
+    res.send(titles);
+  } catch (err) {
+    console.error('listTitles error:', err.message);
+    res.status(500).send({ message: 'Failed to fetch titles.' });
+  }
+};
+
+module.exports.listSkills = async (req, res) => {
+  try {
+    const skills = await Model.listSkills();
+    res.send(skills);
+  } catch (err) {
+    console.error('listSkills error:', err.message);
+    res.status(500).send({ message: 'Failed to fetch skills.' });
+  }
+};
