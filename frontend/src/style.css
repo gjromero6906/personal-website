@@ -102,15 +102,25 @@ nav a:hover::before { opacity: 1; }
 .logo {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  border: 2px solid var(--primary);
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 2px var(--primary-glow));
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .logo:hover {
-  transform: scale(1.1);
-  box-shadow: var(--shadow-glow);
+  transform: scale(1.08);
+  filter:
+    drop-shadow(0 0 4px var(--primary))
+    drop-shadow(0 0 10px var(--primary))
+    drop-shadow(0 0 22px var(--primary-glow))
+    drop-shadow(0 0 40px var(--primary-glow));
+  animation: neonFlicker 1.8s infinite;
+}
+
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 54%, 56%, 100% { opacity: 1; }
+  20%, 22%, 55% { opacity: 0.82; }
 }
 
 /* =========================

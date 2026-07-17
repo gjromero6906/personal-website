@@ -2,7 +2,7 @@ function Header() {
   return (
     <header>
       <a href="#top">
-        <img src="/imgs/logoTrans.jpg" alt="logo" className="logo" />
+        <img src="/imgs/logo.svg" alt="logo" className="logo" />
       </a>
       <nav>
         <a href="#Main">Home</a>
