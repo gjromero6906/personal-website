@@ -40,6 +40,16 @@ INSERT INTO projects (project, img_path, bio) VALUES
   'Rhythm Revolvers',
   '/imgs/RhythmRevolvers.png',
   'This project is shaping up to be a rhythm-based shooting game where timing is everything. The goal is to blend fast-paced shooting with music-driven mechanics across a variety of themes such as zombies, aliens, and nightclub shootouts. Weapons and playstyles will evolve with difficulty, ranging from simple directional inputs to full keyboard mastery.'
+),
+(
+  'Marcy Nexus',
+  '/imgs/marcyNexus.png',
+  'Marcy Nexus is the digital hub for The Marcy Lab School, a one-year tuition-free fellowship that transforms ambitious young adults from underrepresented communities into professional software engineers. The site showcases the program, alumni stories, capstones, and community resources.'
+),
+(
+  'Quantum Lab',
+  '/imgs/QLab.png',
+  'Quantum Lab is an interactive, futuristic-themed web experience that guides users through a branching onboarding journey with distinct paths for new and returning users.'
 );
 
 INSERT INTO project_links (project_id, type, url) VALUES
@@ -54,7 +64,10 @@ INSERT INTO project_links (project_id, type, url) VALUES
 (5, 'GitHub', 'https://github.com/gjromero6906/GuadalupeRomero.github.io'),
 (6, 'GitHub', 'https://github.com/gjromero6906/Consuming_RESTful_APIs_Part_2'),
 (7, 'GitHub', 'https://github.com/gjromero6906/Mod-1-Project-Week'),
-(8, 'GitHub', 'https://github.com/gjromero6906/Rhythm-Revolvers');
+(8, 'GitHub', 'https://github.com/gjromero6906/Rhythm-Revolvers'),
+(9, 'LiveLink', 'https://envelope.build/marcy-nexus/app'),
+(10, 'LiveLink', 'https://quantum-lab-4m1g.onrender.com'),
+(10, 'GitHub',   'https://github.com/Lumina-Marcy/Quantum-Lab');
 
 INSERT INTO skills (category, sort_order, name) VALUES
 ('Languages', 1, 'JavaScript'),
