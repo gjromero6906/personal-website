@@ -4,10 +4,11 @@ DROP TABLE IF EXISTS skills;
 DROP TABLE IF EXISTS titles;
 
 CREATE TABLE projects (
-  id       SERIAL PRIMARY KEY,
-  project  VARCHAR(255) NOT NULL,
-  img_path VARCHAR(255),
-  bio      TEXT
+  id           SERIAL PRIMARY KEY,
+  project      VARCHAR(255) NOT NULL,
+  img_path     VARCHAR(255),
+  bio          TEXT,
+  project_date DATE NOT NULL DEFAULT CURRENT_DATE
 );
 
 CREATE TABLE project_links (

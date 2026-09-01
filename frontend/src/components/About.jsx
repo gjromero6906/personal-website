@@ -17,8 +17,8 @@ function About() {
       <h1>About Me!</h1>
       <div id="info">
         <p>
-          Hi! I&apos;m a Fellow at the Marcy Lab School, where I&apos;m learning to become a
-          software engineer and building the technical and problem-solving skills needed to create
+          Hi! I&apos;m a Marcy Lab School alumni, having graduated in August 2026 as a
+          software engineer with the technical and problem-solving skills needed to create
           meaningful, real-world solutions.<br />
           I&apos;m naturally curious and driven by growth, so outside of coding I&apos;m always
           exploring new skills and creative outlets. I enjoy knitting, drawing, reading, and playing

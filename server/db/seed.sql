@@ -1,55 +1,65 @@
 TRUNCATE project_links, projects, skills, titles RESTART IDENTITY CASCADE;
 
-INSERT INTO projects (project, img_path, bio) VALUES
+INSERT INTO projects (project, img_path, bio, project_date) VALUES
 (
   'Game Tracker',
   '/imgs/fullstack.png',
-  'This is a full stack website using PREN build. The front end leverages REACT, HTML, CSS, and JavaScript to deliver a fast, responsive, and dynamic user experience, while the back end is powered by Express.js to handle server-side logic and API interactions.'
+  'This is a full stack website using PREN build. The front end leverages REACT, HTML, CSS, and JavaScript to deliver a fast, responsive, and dynamic user experience, while the back end is powered by Express.js to handle server-side logic and API interactions.',
+  '2026-05-01'
 ),
 (
   'Current Personal Website',
   '/imgs/CurrentWP.png',
-  'This personal website is built using a modern full-stack JavaScript approach. The front end leverages Vite, HTML, CSS, and JavaScript to deliver a fast, responsive, and dynamic user experience, while the back end is powered by Express.js to handle server-side logic and API interactions.'
+  'This personal website is built using a modern full-stack JavaScript approach. The front end leverages Vite, HTML, CSS, and JavaScript to deliver a fast, responsive, and dynamic user experience, while the back end is powered by Express.js to handle server-side logic and API interactions.',
+  '2026-03-01'
 ),
 (
   'Anime Browser',
   '/imgs/AnimeBrowser.png',
-  'Anime Browser built with vanilla JavaScript (ES6+) that allows users to search for anime titles and view detailed information in a dynamic modal interface.This project focuses on strengthening core front-end fundamentals without using frameworks.'
+  'Anime Browser built with vanilla JavaScript (ES6+) that allows users to search for anime titles and view detailed information in a dynamic modal interface.This project focuses on strengthening core front-end fundamentals without using frameworks.',
+  '2026-02-01'
 ),
 (
   'Black Jack',
   '/imgs/BlackJack.png',
-  'For this solo project, I built a command-line Blackjack game using JavaScript, applying object-oriented programming with classes and synchronous prompts for user interaction. The game simulates real Blackjack logic, including dealing cards, calculating scores, and handling player decisions. This project helped me deepen my understanding of classes, game state management, and control flow while building a fully interactive experience'
+  'For this solo project, I built a command-line Blackjack game using JavaScript, applying object-oriented programming with classes and synchronous prompts for user interaction. The game simulates real Blackjack logic, including dealing cards, calculating scores, and handling player decisions. This project helped me deepen my understanding of classes, game state management, and control flow while building a fully interactive experience',
+  '2025-12-01'
 ),
 (
   'First Static Website',
   '/imgs/firstWebsite.png',
-  'For this solo project, I built a personal portfolio website from scratch using HTML and CSS. The site showcases my skills, projects, and personality while giving me hands-on experience with responsive design and real-world web development. Through this project, I strengthened my understanding of layout, styling, and problem-solving, and created a portfolio I can continue to grow as I advance in my career.'
+  'For this solo project, I built a personal portfolio website from scratch using HTML and CSS. The site showcases my skills, projects, and personality while giving me hands-on experience with responsive design and real-world web development. Through this project, I strengthened my understanding of layout, styling, and problem-solving, and created a portfolio I can continue to grow as I advance in my career.',
+  '2026-01-01'
 ),
 (
   'Sample Hotel Reservations (Java)',
   '/imgs/JavaHotelRes.png',
-  'In this project, I worked in a pair to build a Java console application that consumes a RESTful API to manage hotel reservations. We implemented functionality to add, update, and delete reservations using Spring''s RestTemplate with POST, PUT, and DELETE requests. The project emphasized creating HTTP entities, handling API errors through exception handling and logging, and debugging REST interactions. Collaborating with a partner helped strengthen my understanding of RESTful services and real-world backend communication.'
+  'In this project, I worked in a pair to build a Java console application that consumes a RESTful API to manage hotel reservations. We implemented functionality to add, update, and delete reservations using Spring''s RestTemplate with POST, PUT, and DELETE requests. The project emphasized creating HTTP entities, handling API errors through exception handling and logging, and debugging REST interactions. Collaborating with a partner helped strengthen my understanding of RESTful services and real-world backend communication.',
+  '2025-11-01'
 ),
 (
   'Rock Paper Scissors Command Line Interface',
   '/imgs/RPSCLI.png',
-  'CLI Rock-Paper-Scissors is a command-line game that emulates the feel of classic arcade-style games. It features simple controls, fast gameplay, and clear win/lose logic, focusing on user interaction and game flow without a graphical interface. The project highlights core programming concepts like input handling, game state management, and conditional logic—all wrapped in a retro, emulator-inspired experience.'
+  'CLI Rock-Paper-Scissors is a command-line game that emulates the feel of classic arcade-style games. It features simple controls, fast gameplay, and clear win/lose logic, focusing on user interaction and game flow without a graphical interface. The project highlights core programming concepts like input handling, game state management, and conditional logic—all wrapped in a retro, emulator-inspired experience.',
+  '2026-01-01'
 ),
 (
   'Rhythm Revolvers',
   '/imgs/RhythmRevolvers.png',
-  'This project is shaping up to be a rhythm-based shooting game where timing is everything. The goal is to blend fast-paced shooting with music-driven mechanics across a variety of themes such as zombies, aliens, and nightclub shootouts. Weapons and playstyles will evolve with difficulty, ranging from simple directional inputs to full keyboard mastery.'
+  'This project is shaping up to be a rhythm-based shooting game where timing is everything. The goal is to blend fast-paced shooting with music-driven mechanics across a variety of themes such as zombies, aliens, and nightclub shootouts. Weapons and playstyles will evolve with difficulty, ranging from simple directional inputs to full keyboard mastery.',
+  '2026-04-01'
 ),
 (
   'Marcy Nexus',
   '/imgs/marcyNexus.png',
-  'Marcy Nexus is the digital hub for The Marcy Lab School, a one-year tuition-free fellowship that transforms ambitious young adults from underrepresented communities into professional software engineers. The site showcases the program, alumni stories, capstones, and community resources.'
+  'Marcy Nexus is the digital hub for The Marcy Lab School, a one-year tuition-free fellowship that transforms ambitious young adults from underrepresented communities into professional software engineers. The site showcases the program, alumni stories, capstones, and community resources.',
+  '2026-05-01'
 ),
 (
   'Quantum Lab',
   '/imgs/QLab.png',
-  'Quantum Lab is an interactive, futuristic-themed web experience that guides users through a branching onboarding journey with distinct paths for new and returning users.'
+  'Quantum Lab is an interactive, futuristic-themed web experience that guides users through a branching onboarding journey with distinct paths for new and returning users.',
+  '2026-06-01'
 );
 
 INSERT INTO project_links (project_id, type, url) VALUES
@@ -96,7 +106,7 @@ INSERT INTO skills (category, sort_order, name) VALUES
 INSERT INTO titles (title) VALUES
 ('Aspiring Full-Stack Developer'),
 ('Full-Stack Software Engineer in Training'),
-('Software Engineer Fellow'),
+('Software Engineer Graduate'),
 ('Full-Stack Web Developer'),
 ('JavaScript Developer'),
 ('React Developer'),
@@ -128,11 +138,11 @@ INSERT INTO titles (title) VALUES
 ('Full-Stack Application Builder'),
 ('Web Solutions Developer'),
 ('Digital Product Developer'),
-('Technology Fellow'),
-('Software Engineering Fellow'),
-('Full-Stack Engineering Fellow'),
-('Developer Fellow'),
-('Software Development Fellow'),
+('Technology Graduate'),
+('Software Engineering Graduate'),
+('Full-Stack Engineering Graduate'),
+('Developer Graduate'),
+('Software Development Graduate'),
 ('Technology Professional'),
 ('Software Development Professional'),
 ('Continuous Learning Engineer'),
@@ -172,11 +182,11 @@ INSERT INTO titles (title) VALUES
 ('Database Application Developer'),
 ('User Experience-Focused Developer'),
 ('Software Development Apprentice'),
-('Engineering Fellow'),
+('Engineering Graduate'),
 ('Technology Builder'),
 ('Digital Experience Developer'),
 ('Application Systems Developer'),
-('Software Technology Fellow'),
+('Software Technology Graduate'),
 ('Full-Stack Technology Developer'),
 ('Modern Application Developer'),
 ('Cloud-Curious Software Engineer'),
@@ -184,7 +194,7 @@ INSERT INTO titles (title) VALUES
 ('Lifelong Learner in Technology'),
 ('Emerging Full-Stack Engineer'),
 ('Aspiring Technology Professional'),
-('Web Development Fellow'),
+('Web Development Graduate'),
 ('Software Engineering Professional'),
 ('Technology Problem Solver'),
 ('Software Systems Engineer'),
@@ -257,8 +267,8 @@ INSERT INTO titles (title) VALUES
 ('Modern Web Engineering Enthusiast'),
 ('Software Engineering Enthusiast'),
 ('Application Development Enthusiast'),
-('Full-Stack Development Fellow'),
-('Engineering and Technology Fellow'),
+('Full-Stack Development Graduate'),
+('Engineering and Technology Graduate'),
 ('Web Technology Enthusiast'),
 ('Software Systems Enthusiast'),
 ('Digital Solutions Developer'),
@@ -277,7 +287,7 @@ INSERT INTO titles (title) VALUES
 ('Modern Software Development Enthusiast'),
 ('Engineering-Focused Problem Solver'),
 ('Technology and Software Builder'),
-('Full-Stack Software Engineering Fellow'),
+('Full-Stack Software Engineering Graduate'),
 ('Full-Stack Systems Developer'),
 ('Full-Stack Systems Engineer'),
 ('Web Application Architect in Training'),
