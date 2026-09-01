@@ -4,13 +4,15 @@ module.exports.list = async () => {
   const { data, error } = await supabase
     .from('projects')
     .select('*, project_links(type, url)')
-    .order('id');
+    .order('project_date', { ascending: false })
+    .order('id', { ascending: false });
 
   if (error) throw error;
 
-  return data.map(({ img_path, project_links, ...rest }) => ({
+  return data.map(({ img_path, project_date, project_links, ...rest }) => ({
     ...rest,
     imgPath: img_path,
+    projectDate: project_date,
     links: project_links,
   }));
 };
@@ -24,8 +26,8 @@ module.exports.find = async (id) => {
 
   if (error || !data) return null;
 
-  const { img_path, project_links, ...rest } = data;
-  return { ...rest, imgPath: img_path, links: project_links };
+  const { img_path, project_date, project_links, ...rest } = data;
+  return { ...rest, imgPath: img_path, projectDate: project_date, links: project_links };
 };
 
 module.exports.listTitles = async () => {

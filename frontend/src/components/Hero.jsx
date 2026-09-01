@@ -61,7 +61,7 @@ function Hero() {
         <span className="typewriter-cursor">_</span>
       </p>
       <p>
-        I&apos;m a fellow at{' '}
+        I&apos;m a graduate of{' '}
         <a
           href="https://www.marcylabschool.org"
           className="highlight-link"
@@ -70,7 +70,7 @@ function Hero() {
         >
           Marcy Lab School
         </a>{' '}
-        learning to be a upstanding Software Engineer.
+        and an upstanding Software Engineer.
       </p>
     </section>
   );
