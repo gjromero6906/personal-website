@@ -77,9 +77,11 @@ INSERT INTO project_links (project_id, type, url) VALUES
 (8, 'GitHub', 'https://github.com/gjromero6906/Rhythm-Revolvers'),
 (9, 'LiveLink', 'https://envelope.build/marcy-nexus/app'),
 (10, 'LiveLink', 'https://quantum-lab-4m1g.onrender.com'),
-(10, 'GitHub',   'https://github.com/Lumina-Marcy/Quantum-Lab');
+(10, 'GitHub',   'https://github.com/Lumina-Marcy/Quantum-Lab'),
+(10, 'Presentation', 'https://www.genspark.ai/slides?project_id=65d1ab68-af51-472d-bc96-e1c9f6709bb7');
 
 INSERT INTO skills (category, sort_order, name) VALUES
+('Languages', 1, 'Python'),
 ('Languages', 1, 'JavaScript'),
 ('Languages', 1, 'Java'),
 ('Languages', 1, 'SQL'),
@@ -88,19 +90,21 @@ INSERT INTO skills (category, sort_order, name) VALUES
 ('Languages', 1, 'CSS'),
 ('Languages', 1, 'PostgreSQL'),
 ('Languages', 1, 'Lua'),
+('Frameworks / Libraries / Environments', 2, 'React'),
+('Frameworks / Libraries / Environments', 2, 'FastAPI'),
 ('Frameworks / Libraries / Environments', 2, 'Express'),
 ('Frameworks / Libraries / Environments', 2, 'Node.js'),
-('Frameworks / Libraries / Environments', 2, 'React'),
-('Frameworks / Libraries / Environments', 2, 'Jest'),
 ('Frameworks / Libraries / Environments', 2, 'DOM API'),
+('Frameworks / Libraries / Environments', 2, 'Jest'),
+('Frameworks / Libraries / Environments', 2, 'Knex'),
 ('Frameworks / Libraries / Environments', 2, 'Löve'),
 ('Tools', 3, 'Git'),
 ('Tools', 3, 'GitHub'),
 ('Tools', 3, 'VS Code'),
 ('Tools', 3, 'IntelliJ'),
 ('Tools', 3, 'Postman'),
-('Tools', 3, 'Maven'),
 ('Tools', 3, 'Command-Line Interfaces'),
+('Tools', 3, 'Maven'),
 ('Tools', 3, 'Chrome Developer Tools');
 
 INSERT INTO titles (title) VALUES
