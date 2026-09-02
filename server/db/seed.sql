@@ -76,6 +76,7 @@ INSERT INTO project_links (project_id, type, url) VALUES
 (7, 'GitHub', 'https://github.com/gjromero6906/Mod-1-Project-Week'),
 (8, 'GitHub', 'https://github.com/gjromero6906/Rhythm-Revolvers'),
 (9, 'LiveLink', 'https://envelope.build/marcy-nexus/app'),
+(9, 'GitHub', 'https://github.com/MarcyNexus/Nexus'),
 (10, 'LiveLink', 'https://quantum-lab-4m1g.onrender.com'),
 (10, 'GitHub',   'https://github.com/Lumina-Marcy/Quantum-Lab'),
 (10, 'Presentation', 'https://www.genspark.ai/slides?project_id=65d1ab68-af51-472d-bc96-e1c9f6709bb7');
