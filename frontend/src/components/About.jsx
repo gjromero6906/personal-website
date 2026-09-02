@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+import SkillChip from './SkillChip';
+import { skillDefinitions } from '../data/skillDefinitions';
 
 function About() {
   const [skills, setSkills] = useState({});
+  const [activeSkill, setActiveSkill] = useState(null);
 
   useEffect(() => {
     fetch('/api/skills')
@@ -37,7 +40,13 @@ function About() {
               <h3 className="skill-group-title">{category}</h3>
               <ul className="skill-chips">
                 {names.map((name) => (
-                  <li key={name}>{name}</li>
+                  <SkillChip
+                    key={name}
+                    name={name}
+                    definition={skillDefinitions[name]}
+                    isActive={activeSkill === name}
+                    onToggle={setActiveSkill}
+                  />
                 ))}
               </ul>
             </div>
