@@ -1,14 +1,16 @@
+import { Link } from 'react-router-dom';
+
 function Header() {
   return (
     <header>
-      <a href="#top">
+      <Link to="/#top">
         <img src="/imgs/logo.svg" alt="logo" className="logo" />
-      </a>
+      </Link>
       <nav>
-        <a href="#Main">Home</a>
-        <a href="#About">About</a>
-        <a href="#Projects">Projects</a>
-        <a href="#Contact">Contact</a>
+        <Link to="/#Main">Home</Link>
+        <Link to="/#About">About</Link>
+        <Link to="/#Projects">Projects</Link>
+        <Link to="/#Contact">Contact</Link>
       </nav>
     </header>
   );
