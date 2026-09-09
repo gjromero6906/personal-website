@@ -129,6 +129,14 @@ INSERT INTO project_docs (project_id, title, summary, url, sort_order) VALUES
 (10, 'Project Updates Log', 'A running changelog of smaller updates — favicon, nav cleanup, ported mission work, and more — across the project''s development.', 'https://github.com/Lumina-Marcy/Quantum-Lab/blob/main/docs/UPDATES.md', 11),
 (10, 'File Purpose Guide', 'Explains what every scaffolded file in the repo is for and why it exists, from root config down to individual frontend and backend files.', 'https://github.com/Lumina-Marcy/Quantum-Lab/blob/main/docs/file-purpose.md', 12),
 
+-- Rhythm Revolvers (project_id 8) — no separate docs/ folder, so this
+-- breaks up its single README.md by its dated "Updates" sections instead.
+(8, 'Overview', 'What Rhythm Revolvers is and how it plays: a timing-based shooter, still under active development, where difficulty ranges from arrow keys up through the full alphabet and digits.', 'https://github.com/gjromero6906/Rhythm-Revolvers/blob/master/README.md', 1),
+(8, 'Update: May 14, 2026', 'Added simultaneous on-screen targets and scalable difficulty levels, gave each target its own independent timer feeding into score, and started planning to sync target spawns to real music-sheet timing data.', 'https://github.com/gjromero6906/Rhythm-Revolvers/blob/master/README.md#5142026', 2),
+(8, 'Update: June 25, 2026', 'Introduced the high-stakes Biter enemy and its key-sequence mini-game, added a dynamic spawn-pacing system that reacts to recent hit rate, and switched to the Consolas font for clearer number/letter distinction.', 'https://github.com/gjromero6906/Rhythm-Revolvers/blob/master/README.md#06252026', 3),
+(8, 'Update: July 1, 2026', 'Made the leaderboard case-insensitive and fairer (no more duplicate entries for "Player" vs "player"), color-coded 0 vs O for readability, and added a frame-rate-aware target cap so weaker machines throttle down automatically.', 'https://github.com/gjromero6906/Rhythm-Revolvers/blob/master/README.md#07012026', 4),
+(8, 'Code Reference', 'A file-by-file breakdown of every Lua module — main.lua (game loop), menu.lua, target.lua, biter.lua, pacing.lua, player.lua, states.lua, and difficulty.lua — and what each one owns.', 'https://github.com/gjromero6906/Rhythm-Revolvers/blob/master/README.md#code-reference', 5),
+
 -- Current Personal Website (project_id 2) — docs/ folder in this repo
 (2, 'Changelog', 'Chronological, dated record of every notable change to this site — content edits, schema changes, and feature work — newest first.', 'https://github.com/gjromero6906/personal-website/blob/usingAi/docs/CHANGELOG.md', 1),
 (2, 'Frontend', 'Folder map for the React + Vite client and how it talks to the Express API — what lives in src/, components/, data/, and public/.', 'https://github.com/gjromero6906/personal-website/blob/usingAi/docs/FRONTEND.md', 2),
