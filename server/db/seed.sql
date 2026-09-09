@@ -1,65 +1,85 @@
-TRUNCATE project_links, projects, skills, titles RESTART IDENTITY CASCADE;
+TRUNCATE project_links, project_docs, projects, skills, titles RESTART IDENTITY CASCADE;
 
-INSERT INTO projects (project, img_path, bio, project_date) VALUES
+INSERT INTO projects (project, img_path, bio, why, technologies, project_date) VALUES
 (
   'Game Tracker',
   '/imgs/fullstack.png',
-  'This is a full stack website using PREN build. The front end leverages REACT, HTML, CSS, and JavaScript to deliver a fast, responsive, and dynamic user experience, while the back end is powered by Express.js to handle server-side logic and API interactions.',
-  '2026-05-01'
+  'Games Tracker is a full-stack app where logged-in users track video games they own or want to play, creating entries with a title, platform, and status (completed, dropped, wishlist, or in progress) and deleting them once done.',
+  'Built as a Marcy Lab School full-stack case study to demonstrate session-based authentication, session rehydration, auth-dependent data fetching, and conditional rendering — the same patterns used in a real full-stack project.',
+  ARRAY['React', 'Vite', 'Express.js', 'PostgreSQL', 'Node.js', 'Session-Based Auth'],
+  '2026-06-01'
 ),
 (
   'Current Personal Website',
   '/imgs/CurrentWP.png',
   'This personal website is built using a modern full-stack JavaScript approach. The front end leverages Vite, HTML, CSS, and JavaScript to deliver a fast, responsive, and dynamic user experience, while the back end is powered by Express.js to handle server-side logic and API interactions.',
+  'I needed a real, living portfolio to showcase my projects and skills to employers, and wanted it backed by an actual database instead of hard-coded data.',
+  ARRAY['React', 'Vite', 'Express.js', 'Node.js', 'PostgreSQL', 'Supabase', 'HTML', 'CSS', 'JavaScript'],
   '2026-03-01'
 ),
 (
   'Anime Browser',
   '/imgs/AnimeBrowser.png',
-  'Anime Browser built with vanilla JavaScript (ES6+) that allows users to search for anime titles and view detailed information in a dynamic modal interface.This project focuses on strengthening core front-end fundamentals without using frameworks.',
+  'A modular, API-driven Anime Browser built with vanilla JavaScript (ES6+) that lets users search for anime titles and view detailed information in a dynamic modal, built in a pair with Ian Miller.',
+  'This project focused on strengthening core front-end fundamentals — DOM manipulation, the Fetch API, and rendering — without leaning on a framework.',
+  ARRAY['HTML5', 'CSS3 (Grid)', 'JavaScript (ES6+)', 'Fetch API', 'Jikan REST API'],
   '2026-02-01'
 ),
 (
   'Black Jack',
   '/imgs/BlackJack.png',
-  'For this solo project, I built a command-line Blackjack game using JavaScript, applying object-oriented programming with classes and synchronous prompts for user interaction. The game simulates real Blackjack logic, including dealing cards, calculating scores, and handling player decisions. This project helped me deepen my understanding of classes, game state management, and control flow while building a fully interactive experience',
-  '2025-12-01'
+  'For this solo project, I built a command-line Blackjack game using JavaScript, applying object-oriented programming with classes and synchronous prompts for user interaction. The game simulates real Blackjack logic, including dealing cards, calculating scores, and handling player decisions, with stats persisted between sessions.',
+  'I wanted to practice object-oriented JavaScript by splitting a full Blackjack game into dedicated modules — deck building, game rules, the menu/CLI, and stats tracking — modeled as classes instead of one script.',
+  ARRAY['JavaScript', 'Node.js', 'prompt-sync', 'Object-Oriented Programming', 'Command-Line Interfaces'],
+  '2026-02-01'
 ),
 (
   'First Static Website',
   '/imgs/firstWebsite.png',
   'For this solo project, I built a personal portfolio website from scratch using HTML and CSS. The site showcases my skills, projects, and personality while giving me hands-on experience with responsive design and real-world web development. Through this project, I strengthened my understanding of layout, styling, and problem-solving, and created a portfolio I can continue to grow as I advance in my career.',
+  'This was my first website ever, built with AI as a thinking partner rather than a solution generator, to deepen my understanding of CSS layout — specifically getting a responsive projects section working with Flexbox and Grid.',
+  ARRAY['HTML', 'CSS (Flexbox, Grid)'],
   '2026-01-01'
 ),
 (
   'Sample Hotel Reservations (Java)',
   '/imgs/JavaHotelRes.png',
-  'In this project, I worked in a pair to build a Java console application that consumes a RESTful API to manage hotel reservations. We implemented functionality to add, update, and delete reservations using Spring''s RestTemplate with POST, PUT, and DELETE requests. The project emphasized creating HTTP entities, handling API errors through exception handling and logging, and debugging REST interactions. Collaborating with a partner helped strengthen my understanding of RESTful services and real-world backend communication.',
+  'In this project, I worked in a pair to build a Java console application (in IntelliJ) that consumes a RESTful API to manage hotel reservations. We implemented adding a reservation with postForObject() and a hand-built HttpEntity, updating one with put() (passing the reservation ID in the URL), and deleting one with delete() — plus exception handling for RestClientResponseException (401/404/500 responses) and ResourceAccessException (server unreachable), with errors written to a log file via a BasicLogger.',
+  'This was a guided "Consuming RESTful APIs" exercise my partner and I worked through together, to get hands-on with Spring''s RestTemplate for POST/PUT/DELETE requests instead of just GET, and to practice handling real HTTP failure cases (unauthorized, not found, server errors, unreachable server) rather than only the happy path.',
+  ARRAY['Java', 'Spring (RestTemplate)', 'IntelliJ IDEA', 'REST APIs', 'Exception Handling'],
   '2025-11-01'
 ),
 (
   'Rock Paper Scissors Command Line Interface',
   '/imgs/RPSCLI.png',
-  'CLI Rock-Paper-Scissors is a command-line game that emulates the feel of classic arcade-style games. It features simple controls, fast gameplay, and clear win/lose logic, focusing on user interaction and game flow without a graphical interface. The project highlights core programming concepts like input handling, game state management, and conditional logic—all wrapped in a retro, emulator-inspired experience.',
+  'CLI Rock-Paper-Scissors is a command-line game with a Menu class that gets user input and calls a Game class''s playRound(), with shared enums used across both to avoid typo bugs like misspelling "rock".',
+  'Built as the Marcy Lab School Mod-1 JavaScript Fundamentals project, to practice splitting logic across a Start (game loop), Menu (I/O), and Game (rules/scoring) class, and using enums instead of raw strings.',
+  ARRAY['JavaScript', 'Node.js', 'prompt-sync', 'Enums', 'Object-Oriented Programming'],
   '2026-01-01'
 ),
 (
   'Rhythm Revolvers',
   '/imgs/RhythmRevolvers.png',
-  'This project is shaping up to be a rhythm-based shooting game where timing is everything. The goal is to blend fast-paced shooting with music-driven mechanics across a variety of themes such as zombies, aliens, and nightclub shootouts. Weapons and playstyles will evolve with difficulty, ranging from simple directional inputs to full keyboard mastery.',
-  '2026-04-01'
+  '🚧 Still under active development. Rhythm Revolvers is a timing-based shooter where players press the key matching each on-screen target before its window expires, with difficulty levels ranging from arrow keys up to the full alphabet and digits. A high-stakes "Biter" target can expand to take over the screen and force a randomly generated key-sequence mini-game, a real-time pacing system speeds up or slows down spawns based on recent hit rate, and scores are saved to a persistent local leaderboard.',
+  'I wanted to explore game development outside the browser and build my own core systems from scratch — a difficulty pacer that reacts to hit/miss rate in real time, an FPS-based target cap, and a high-stakes key-sequence mini-game — rather than leaning on a pre-built framework''s systems.',
+  ARRAY['Lua', 'LÖVE2D', 'File I/O (Leaderboard Persistence)'],
+  '2026-07-01'
 ),
 (
   'Marcy Nexus',
   '/imgs/marcyNexus.png',
-  'Marcy Nexus is the digital hub for The Marcy Lab School, a one-year tuition-free fellowship that transforms ambitious young adults from underrepresented communities into professional software engineers. The site showcases the program, alumni stories, capstones, and community resources.',
-  '2026-05-01'
+  'Marcy Nexus is an in-progress web + mobile platform for The Marcy Lab School: one Next.js web app and one Expo mobile app sharing a single Supabase backend and data model. It''s designed to give fellows, alumni, hiring partners, and staff each their own access-scoped dashboard (a fellow dashboard, an alumni directory/job board, a partner portal) rather than one undifferentiated site.',
+  'Built with a team to give the school one shared platform across web and phone instead of copy-pasted code drifting out of sync between two apps, with security designed in at the database layer (Postgres Row Level Security, not just app-side checks) from day one — since the program handles fellows'' demographic and financial data.',
+  ARRAY['Next.js', 'TypeScript', 'Tailwind CSS', 'Expo (React Native)', 'Supabase', 'PostgreSQL', 'Row Level Security', 'npm Workspaces'],
+  '2026-08-01'
 ),
 (
   'Quantum Lab',
   '/imgs/QLab.png',
-  'Quantum Lab is an interactive, futuristic-themed web experience that guides users through a branching onboarding journey with distinct paths for new and returning users.',
-  '2026-06-01'
+  'Quantum Lab (aka "Quantum Quest") is an interactive, futuristic-themed platform that teaches quantum computing through visual storytelling instead of equations, via missions on cybersecurity, search, healthcare, and logistics that compare a classical approach side-by-side with a quantum one.',
+  'Built with teammates Abel Delgadillo and tylekmj as a Marcy Lab School capstone, on the hypothesis that experiential learning — not equations — is the missing link in quantum education. The goal: make quantum computing understandable in five minutes or less.',
+  ARRAY['React', 'React Router', 'Framer Motion', 'Python', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Pydantic', 'Tailwind CSS', 'Docker'],
+  '2026-08-01'
 );
 
 INSERT INTO project_links (project_id, type, url) VALUES
@@ -80,6 +100,48 @@ INSERT INTO project_links (project_id, type, url) VALUES
 (10, 'LiveLink', 'https://quantum-lab-4m1g.onrender.com'),
 (10, 'GitHub',   'https://github.com/Lumina-Marcy/Quantum-Lab'),
 (10, 'Presentation', 'https://www.genspark.ai/slides?project_id=65d1ab68-af51-472d-bc96-e1c9f6709bb7');
+
+INSERT INTO project_docs (project_id, title, summary, url, sort_order) VALUES
+-- Marcy Nexus (project_id 9) — docs/00-overview.md through docs/10-partner-portal.md
+(9, 'Project Structure & Rationale', 'Explains why the repo is one monorepo instead of two or three, why npm workspaces over a heavier tool, and the reasoning behind each major technology choice (Supabase, Next.js, Expo, npm).', 'https://github.com/MarcyNexus/Nexus/blob/main/docs/00-overview.md', 1),
+(9, 'apps/web — Next.js Web App', 'Why Next.js was chosen for the web app, and a file-by-file breakdown of what create-next-app generated versus what was hand-written.', 'https://github.com/MarcyNexus/Nexus/blob/main/docs/01-web-app.md', 2),
+(9, 'apps/mobile — Expo App', 'Why Expo was chosen over bare React Native, and a file-by-file breakdown of the generated mobile app scaffold.', 'https://github.com/MarcyNexus/Nexus/blob/main/docs/02-mobile-app.md', 3),
+(9, '@marcy-nexus/shared', 'Why a shared package exists so the web and mobile apps use one Supabase client factory and one set of types instead of two copies drifting apart.', 'https://github.com/MarcyNexus/Nexus/blob/main/docs/03-shared-package.md', 4),
+(9, 'Supabase Backend Config', 'What the supabase/ folder actually is — local CLI project configuration, not the database itself — and how it enables tracked migrations against the real hosted project.', 'https://github.com/MarcyNexus/Nexus/blob/main/docs/04-supabase-backend.md', 5),
+(9, 'Roles, Security & Data Model', 'The proposed RBAC design: seven roles (admin, teacher, fellow, alumni, partner, and more), enforced by Postgres Row Level Security rather than app-side checks, plus the full table schema.', 'https://github.com/MarcyNexus/Nexus/blob/main/docs/05-roles-and-data-model.md', 6),
+(9, 'Cookies & Session Handling', 'Why the web app stores its Supabase session in a cookie instead of localStorage — so server-side code can gate protected pages before they ever render.', 'https://github.com/MarcyNexus/Nexus/blob/main/docs/06-cookies-and-auth.md', 7),
+(9, 'Database Schema Reference', 'Table-by-table reference for the written (not yet applied) migration implementing the roles/data-model design — profiles, cohorts, fellow/alumni profiles, organizations, and more.', 'https://github.com/MarcyNexus/Nexus/blob/main/docs/07-database-schema.md', 8),
+(9, 'Fellow Dashboard (/fellow)', 'How the publicly-viewable, mock-data fellow dashboard is built and organized, ahead of real auth and a real content table.', 'https://github.com/MarcyNexus/Nexus/blob/main/docs/08-fellow-dashboard.md', 9),
+(9, 'Alumni Dashboard (/alumni)', 'The second role dashboard, following the same conventions as the fellow dashboard — career timeline, job board, and alumni directory, all still mock data.', 'https://github.com/MarcyNexus/Nexus/blob/main/docs/09-alumni-dashboard.md', 10),
+(9, 'Hiring Partner Portal (/partner)', 'The external hiring-partner dashboard — talent pipeline, impact metrics, and success stories — for recruiters at partner companies, distinct from internal partnerships staff.', 'https://github.com/MarcyNexus/Nexus/blob/main/docs/10-partner-portal.md', 11),
+
+-- Quantum Lab (project_id 10) — docs/*.md
+(10, 'AI Sandbox', 'Adds a theory-only AI chat assistant (via Gemini''s API) to the Sandbox page that can only reference the app''s existing lessons by id, never generate actionable exploit instructions.', 'https://github.com/Lumina-Marcy/Quantum-Lab/blob/main/docs/AI_SANDBOX.md', 1),
+(10, 'App/Mission Merge Fixes', 'A running log of merge-caused build breaks in App.jsx and Mission.jsx — duplicate route declarations and stale mission-id references — and how each was tracked down and fixed.', 'https://github.com/Lumina-Marcy/Quantum-Lab/blob/main/docs/APP_MISSION_FIXES.md', 2),
+(10, 'Auth Implementation', 'How registration and login were built with FastAPI, SQLAlchemy, bcrypt, and JWTs, plus later additions: proactive session-expiry detection, a configurable remember-me duration, and password re-confirmation on sensitive changes.', 'https://github.com/Lumina-Marcy/Quantum-Lab/blob/main/docs/AUTH_CHANGES.md', 3),
+(10, 'Deployment (Render)', 'Consolidated the app from two separate Render services into one Docker-based service where FastAPI serves the built React app directly, removing cross-origin concerns in production.', 'https://github.com/Lumina-Marcy/Quantum-Lab/blob/main/docs/DEPLOYMENT.md', 4),
+(10, 'Frontend & Integration Updates', 'A changelog of frontend/backend integration work, including migrating the missions list from a hardcoded frontend file into real database-backed API endpoints.', 'https://github.com/Lumina-Marcy/Quantum-Lab/blob/main/docs/FRONTEND_UPDATES.md', 5),
+(10, 'Mission 5: Government Files', 'Design notes for the Quantum Key Distribution mission, which teaches that measuring a qubit disturbs it — so eavesdropping on a key in transit can never go undetected — through a manual, click-driven series of transmission rounds.', 'https://github.com/Lumina-Marcy/Quantum-Lab/blob/main/docs/GOVERNMENT_FILES_MISSION.md', 6),
+(10, 'Methods Lesson Tracker', 'Tracks the short video-plus-interactive "Methods" lessons on the Resources page (Grover''s Algorithm, Quantum Gates, Shor''s Algorithm) and how to add a new one.', 'https://github.com/Lumina-Marcy/Quantum-Lab/blob/main/docs/METHODS.md', 7),
+(10, 'Mission 3: Build the Molecule', 'Design notes for the medical-breakthrough mission, where players manually search a 6.25-million-combination molecule space before a Grover''s-algorithm-style reveal shows the quantum shortcut.', 'https://github.com/Lumina-Marcy/Quantum-Lab/blob/main/docs/MOLECULE_MISSION.md', 8),
+(10, 'Resources Page (Mini Lessons)', 'How the /resources mini-lesson library works — lesson cards, a detail page with embedded video, and a growing set of hands-on interactive visualizations (Bloch sphere, Grover''s search, entanglement, interference).', 'https://github.com/Lumina-Marcy/Quantum-Lab/blob/main/docs/RESOURCES_PAGE.md', 9),
+(10, 'Mission 4: Supply Chain Crisis', 'Design notes for the logistics mission, rebuilt three times before landing on a manual "Warehouse Chaos" scheduling minigame that feeds into the existing Grover''s-style amplitude reveal.', 'https://github.com/Lumina-Marcy/Quantum-Lab/blob/main/docs/SUPPLY_CHAIN_MISSION.md', 10),
+(10, 'Project Updates Log', 'A running changelog of smaller updates — favicon, nav cleanup, ported mission work, and more — across the project''s development.', 'https://github.com/Lumina-Marcy/Quantum-Lab/blob/main/docs/UPDATES.md', 11),
+(10, 'File Purpose Guide', 'Explains what every scaffolded file in the repo is for and why it exists, from root config down to individual frontend and backend files.', 'https://github.com/Lumina-Marcy/Quantum-Lab/blob/main/docs/file-purpose.md', 12),
+
+-- Current Personal Website (project_id 2) — docs/ folder in this repo
+(2, 'Changelog', 'Chronological, dated record of every notable change to this site — content edits, schema changes, and feature work — newest first.', 'https://github.com/gjromero6906/personal-website/blob/usingAi/docs/CHANGELOG.md', 1),
+(2, 'Frontend', 'Folder map for the React + Vite client and how it talks to the Express API — what lives in src/, components/, data/, and public/.', 'https://github.com/gjromero6906/personal-website/blob/usingAi/docs/FRONTEND.md', 2),
+(2, 'Backend', 'Folder map for the Express API and its request flow — index.js routes into controllers, controllers into models, models into Supabase.', 'https://github.com/gjromero6906/personal-website/blob/usingAi/docs/BACKEND.md', 3),
+(2, 'frontend/', 'What''s in the frontend/ folder itself — index.html, vite.config.js, and how the src/ and public/ subfolders fit together.', 'https://github.com/gjromero6906/personal-website/blob/usingAi/docs/frontend.md', 4),
+(2, 'frontend/src/', 'The React application source — main.jsx, App.jsx (defines page-section order), and the site''s single global stylesheet.', 'https://github.com/gjromero6906/personal-website/blob/usingAi/docs/frontend-src.md', 5),
+(2, 'frontend/src/components/', 'One-line purpose of every component file — what page section it renders and what data, if any, it fetches.', 'https://github.com/gjromero6906/personal-website/blob/usingAi/docs/frontend-src-components.md', 6),
+(2, 'frontend/src/data/', 'The one piece of frontend-only static data, skillDefinitions.js, and how it powers the About section''s click-to-reveal skill popovers.', 'https://github.com/gjromero6906/personal-website/blob/usingAi/docs/frontend-src-data.md', 7),
+(2, 'frontend/public/', 'Static assets served as-is at the site root — project screenshots and the site logo, including which logo files are no longer referenced.', 'https://github.com/gjromero6906/personal-website/blob/usingAi/docs/frontend-public.md', 8),
+(2, 'server/', 'What''s in the server/ folder itself — index.js, the tracked .env, and how its db/, models/, and controllers/ subfolders fit together.', 'https://github.com/gjromero6906/personal-website/blob/usingAi/docs/server.md', 9),
+(2, 'server/db/', 'The Supabase client, table schema, and seed data — and the reminder that neither schema.sql nor seed.sql runs automatically against the live database.', 'https://github.com/gjromero6906/personal-website/blob/usingAi/docs/server-db.md', 10),
+(2, 'server/models/', 'The data-access layer — every Supabase query the app makes, one function per read operation.', 'https://github.com/gjromero6906/personal-website/blob/usingAi/docs/server-models.md', 11),
+(2, 'server/controllers/', 'The Express route handlers — one per API endpoint, each calling a model function and shaping the HTTP response.', 'https://github.com/gjromero6906/personal-website/blob/usingAi/docs/server-controllers.md', 12);
 
 INSERT INTO skills (category, sort_order, name) VALUES
 ('Languages', 1, 'Python'),

@@ -1,23 +1,22 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header.jsx';
-import Hero from './components/Hero.jsx';
-import About from './components/About.jsx';
-import Projects from './components/Projects.jsx';
-import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
+import Home from './pages/Home.jsx';
+import ProjectDetail from './pages/ProjectDetail.jsx';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <div id="top"></div>
       <Header />
       <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects/:id" element={<ProjectDetail />} />
+        </Routes>
       </main>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 

@@ -482,6 +482,12 @@ section h1::after {
   position: relative;
   overflow: hidden;
   text-align: left;
+  cursor: pointer;
+}
+
+.project-card:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
 }
 
 /* per-card gradient colors */
@@ -594,6 +600,368 @@ button:hover {
 .project-links a:active,
 button:active {
   transform: translateY(1px);
+}
+
+/* =========================
+   PROJECT DETAIL — RETRO ARCADE PIN BOARD
+========================= */
+
+/* the board itself: dark corkboard-style panel, overrides the
+   generic terminal-panel `section` look used everywhere else */
+#ProjectDetail.pinboard {
+  max-width: 900px;
+  padding: 56px 20px 60px;
+  text-align: center;
+  background:
+    radial-gradient(rgba(0, 0, 0, 0.35) 1px, transparent 1.5px) 0 0 / 14px 14px,
+    linear-gradient(160deg, #1c140d, #120d09 60%, #0c0908);
+  border: 1px solid #3a2a1c;
+  border-top: 2px solid var(--primary);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7), inset 0 0 60px rgba(0, 0, 0, 0.5);
+}
+
+/* no ".exe" corner tag on the pinboard */
+#ProjectDetail.pinboard::before { content: none; }
+
+.pin-slot {
+  position: relative;
+  display: inline-block;
+  max-width: 640px;
+  width: 100%;
+}
+
+.pushpin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #baffdf, var(--primary) 55%, #027a44 100%);
+  box-shadow: 0 0 8px var(--primary), 0 0 18px var(--primary-glow), 0 2px 0 #04331d;
+  z-index: 3;
+}
+
+/* =========================
+   PIXEL / 8-BIT FRAME
+========================= */
+.pixel-frame {
+  background: var(--border-bright);
+  padding: 1px;
+  clip-path: polygon(
+    0 8px, 8px 8px, 8px 0,
+    calc(100% - 8px) 0, calc(100% - 8px) 8px, 100% 8px,
+    100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px), calc(100% - 8px) 100%,
+    8px 100%, 8px calc(100% - 8px), 0 calc(100% - 8px)
+  );
+  box-shadow: var(--shadow-glow), 0 14px 30px rgba(0, 0, 0, 0.6);
+  transform: rotate(-1.2deg);
+}
+
+.pixel-card {
+  background: var(--bg-card);
+  padding: 26px 22px 30px;
+  clip-path: polygon(
+    0 6px, 6px 6px, 6px 0,
+    calc(100% - 6px) 0, calc(100% - 6px) 6px, 100% 6px,
+    100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px), calc(100% - 6px) 100%,
+    6px 100%, 6px calc(100% - 6px), 0 calc(100% - 6px)
+  );
+  text-align: left;
+  position: relative;
+}
+
+/* =========================
+   ARCADE TYPE
+========================= */
+.arcade-heading {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(0.7rem, 2vw, 1rem);
+  line-height: 1.8;
+  color: var(--primary);
+  text-align: center;
+  margin: 6px 0 22px;
+}
+
+.arcade-heading.blink { animation: blink 1s step-end infinite; }
+
+/* =========================
+   SCREEN BEZEL (SCREENSHOT FRAME)
+========================= */
+.screen-bezel {
+  background: #04070a;
+  padding: 10px;
+  border: 2px solid var(--border-bright);
+  box-shadow: inset 0 0 0 2px #000, inset 0 0 24px rgba(0, 255, 136, 0.08);
+  margin-bottom: 18px;
+}
+
+.project-detail-img {
+  display: block;
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  filter: brightness(0.92) saturate(0.95);
+}
+
+/* =========================
+   HIGH SCORE DATE TAG
+========================= */
+.high-score-tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  color: #ffcc00;
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.5);
+  text-align: center;
+  margin: 0 0 22px;
+}
+
+/* =========================
+   QUEST LOG BOXES
+========================= */
+.quest-box {
+  background: #0a0e14;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.quest-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.62rem;
+  color: var(--primary);
+  letter-spacing: 1px;
+  margin: 0 0 10px;
+}
+
+.pixel-body {
+  color: var(--text-dim);
+  line-height: 1.8;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* =========================
+   SIMILAR MISSIONS (SIMILAR PROJECTS)
+========================= */
+.similar-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.similar-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+  text-decoration: none;
+  background: #04070a;
+  border: 1px solid var(--border-bright);
+  padding: 6px;
+  transition: 0.2s ease;
+}
+
+.similar-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+/* fixed 1:1 square viewport so the screenshot always has a definite
+   box to fit inside of, independent of how much space the title needs */
+.similar-card-thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #000;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.similar-card-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0.9) saturate(0.95);
+}
+
+.similar-card-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--primary);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* =========================
+   PIXEL BUTTONS
+========================= */
+.pixel-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 22px 0 34px;
+}
+
+.pixel-btn {
+  display: inline-block;
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 8px 14px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  clip-path: polygon(
+    0 5px, 5px 5px, 5px 0,
+    calc(100% - 5px) 0, calc(100% - 5px) 5px, 100% 5px,
+    100% calc(100% - 5px), calc(100% - 5px) calc(100% - 5px), calc(100% - 5px) 100%,
+    5px 100%, 5px calc(100% - 5px), 0 calc(100% - 5px)
+  );
+  transition: 0.15s ease;
+}
+
+.pixel-btn:hover {
+  background: var(--primary);
+  color: #000;
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.pixel-btn-back {
+  margin-bottom: 20px;
+  font-size: 0.55rem;
+  padding: 7px 10px;
+}
+
+.pixel-btn-back-bottom {
+  display: block;
+  width: fit-content;
+  margin: 24px auto 0;
+  font-size: 0.55rem;
+  padding: 7px 10px;
+}
+
+/* =========================
+   DOC PINS — one pinned note per doc/markdown file in the project
+========================= */
+.doc-pins-header {
+  max-width: 480px;
+  margin: 44px auto 0;
+  padding: 16px 20px;
+  text-align: center;
+  background: var(--bg-card);
+  border: 1px solid var(--primary);
+  box-shadow: var(--shadow-glow), 0 0 0 4px rgba(0, 0, 0, 0.5);
+  animation: docBannerPulse 2.4s ease-in-out infinite;
+}
+
+.doc-pins-heading {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  color: var(--primary);
+  text-shadow: 0 0 10px var(--primary), 0 0 22px var(--primary-glow);
+  margin: 0 0 10px;
+}
+
+.doc-pins-subheading {
+  font-size: 0.8rem;
+  color: var(--text);
+  margin: 0;
+}
+
+@keyframes docBannerPulse {
+  0%, 100% { box-shadow: var(--shadow-glow), 0 0 0 4px rgba(0, 0, 0, 0.5); }
+  50%       { box-shadow: 0 0 20px var(--primary), 0 0 55px var(--primary-glow), 0 0 0 4px rgba(0, 0, 0, 0.5); }
+}
+
+.doc-pins {
+  max-width: 640px;
+  margin: 26px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 26px 18px;
+}
+
+.doc-pin {
+  position: relative;
+  width: 170px;
+  box-sizing: border-box;
+  background: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  padding: 16px 14px;
+  text-decoration: none;
+  box-shadow: 2px 4px 0 rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.doc-pin-0 { transform: rotate(-2.5deg); }
+.doc-pin-1 { transform: rotate(1.8deg); }
+.doc-pin-2 { transform: rotate(-1deg); }
+
+/* same per-card gradient palette as the homepage project cards, cycling every 8 pins */
+.doc-pin:nth-child(8n+1) { background: linear-gradient(145deg, #0f2318, #111a20); }
+.doc-pin:nth-child(8n+2) { background: linear-gradient(145deg, #1a1a2e, #201030); }
+.doc-pin:nth-child(8n+3) { background: linear-gradient(145deg, #0f1a2e, #0f2230); }
+.doc-pin:nth-child(8n+4) { background: linear-gradient(145deg, #2a1414, #180808); }
+.doc-pin:nth-child(8n+5) { background: linear-gradient(145deg, #0a2020, #102828); }
+.doc-pin:nth-child(8n+6) { background: linear-gradient(145deg, #2a2410, #181808); }
+.doc-pin:nth-child(8n+7) { background: linear-gradient(145deg, #28142a, #180818); }
+.doc-pin:nth-child(8n+8) { background: linear-gradient(145deg, #2a0f1a, #1a0810); }
+
+.doc-pin:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-glow);
+  transform: rotate(0deg) translateY(-3px);
+  z-index: 2;
+}
+
+.doc-pushpin {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 13px;
+  height: 13px;
+}
+
+.doc-pin-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.54rem;
+  line-height: 1.8;
+  color: var(--primary);
+  margin: 4px 0 8px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: none;
+}
+
+.doc-pin-summary {
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--text-dim);
+  margin: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* small mobile: keep pixel badges/buttons legible */
+@media (max-width: 500px) {
+  #ProjectDetail.pinboard { padding: 46px 12px 40px; }
+  .pixel-card { padding: 22px 14px 26px; }
+  .arcade-heading { font-size: 0.8rem; }
 }
 
 /* =========================

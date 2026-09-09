@@ -18,16 +18,35 @@ module.exports.list = async () => {
 };
 
 module.exports.find = async (id) => {
-  const { data, error } = await supabase
+  let { data, error } = await supabase
     .from('projects')
-    .select('*, project_links(type, url)')
+    .select('*, project_links(type, url), project_docs(title, summary, url, sort_order)')
     .eq('id', id)
+    .order('sort_order', { referencedTable: 'project_docs' })
     .single();
+
+  // A database that hasn't run the project_docs migration yet (e.g.
+  // production, before schema.sql/seed.sql are re-applied) doesn't have
+  // that table/relationship — degrade to no docs instead of failing the
+  // whole project lookup.
+  if (error && (error.code === 'PGRST200' || error.code === 'PGRST205' || error.code === '42P01')) {
+    ({ data, error } = await supabase
+      .from('projects')
+      .select('*, project_links(type, url)')
+      .eq('id', id)
+      .single());
+  }
 
   if (error || !data) return null;
 
-  const { img_path, project_date, project_links, ...rest } = data;
-  return { ...rest, imgPath: img_path, projectDate: project_date, links: project_links };
+  const { img_path, project_date, project_links, project_docs, ...rest } = data;
+  return {
+    ...rest,
+    imgPath: img_path,
+    projectDate: project_date,
+    links: project_links,
+    docs: project_docs || [],
+  };
 };
 
 module.exports.listTitles = async () => {
