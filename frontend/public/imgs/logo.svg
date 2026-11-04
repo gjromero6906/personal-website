@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <filter id="neonGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="7" result="blur1"/>
+      <feGaussianBlur stdDeviation="14" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect x="4" y="4" width="192" height="192" rx="28" fill="#080c10" stroke="#00ff88" stroke-width="6"/>
+
+  <g stroke="#00ff88" stroke-width="4" stroke-linecap="round" opacity="0.65">
+    <path d="M22 44 L22 22 L44 22"/>
+    <path d="M156 22 L178 22 L178 44"/>
+    <path d="M178 156 L178 178 L156 178"/>
+    <path d="M44 178 L22 178 L22 156"/>
+  </g>
+
+  <text x="100" y="130" text-anchor="middle" font-family="Orbitron, 'Segoe UI', sans-serif" font-weight="700" font-size="92" letter-spacing="-4" fill="#00ff88" filter="url(#neonGlow)">GR</text>
+</svg>
