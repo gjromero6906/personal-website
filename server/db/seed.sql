@@ -80,6 +80,14 @@ INSERT INTO projects (project, img_path, bio, why, technologies, project_date) V
   'Built with teammates Abel Delgadillo and tylekmj as a Marcy Lab School capstone, on the hypothesis that experiential learning — not equations — is the missing link in quantum education. The goal: make quantum computing understandable in five minutes or less.',
   ARRAY['React', 'React Router', 'Framer Motion', 'Python', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Pydantic', 'Tailwind CSS', 'Docker'],
   '2026-08-01'
+),
+(
+  'The Shepherd''s Scholar',
+  '/imgs/ShepherdsScholar.png',
+  'A free website for believers, seekers, and the curious that puts Catholic faith and biblical history side by side, labeling every statement by its source (Scripture, Church teaching, tradition, historical consensus, scholarly hypothesis, or disputed). It features daily Mass readings updated every morning, a then-and-now map of the Holy Land, a beginner''s guide to Mass, and hover definitions for Catholic terms.',
+  'Some people understand faith best when they can see the evidence — the places, the dates, the old texts, and what the Church teaches about them. I wanted one place that presents faith and history together without skipping either, and that runs entirely on free plans.',
+  ARRAY['React', 'TypeScript', 'Vite', 'Cloudflare Workers', 'Python', 'FastAPI', 'PostgreSQL', 'Neon', 'Alembic', 'Docker', 'GitHub Actions'],
+  '2026-11-01'
 );
 
 INSERT INTO project_links (project_id, type, url) VALUES
@@ -99,7 +107,9 @@ INSERT INTO project_links (project_id, type, url) VALUES
 (9, 'GitHub', 'https://github.com/MarcyNexus/Nexus'),
 (10, 'LiveLink', 'https://quantum-lab-4m1g.onrender.com'),
 (10, 'GitHub',   'https://github.com/Lumina-Marcy/Quantum-Lab'),
-(10, 'Presentation', 'https://www.genspark.ai/slides?project_id=65d1ab68-af51-472d-bc96-e1c9f6709bb7');
+(10, 'Presentation', 'https://www.genspark.ai/slides?project_id=65d1ab68-af51-472d-bc96-e1c9f6709bb7'),
+(11, 'GitHub',   'https://github.com/The-Shepherds-Scholars/shepherds-scholar'),
+(11, 'LiveLink', 'https://shepherds-scholar.gjr6906.workers.dev');
 
 INSERT INTO project_docs (project_id, title, summary, url, sort_order) VALUES
 -- Marcy Nexus (project_id 9) — docs/00-overview.md through docs/10-partner-portal.md
